@@ -47,7 +47,6 @@ test-suite validity-test
   other-modules:     Path.Gen
   hs-source-dirs:    test
   build-depends:     QuickCheck
-                   , aeson
                    , base       >= 4.7 && < 5
                    , bytestring
                    , filepath   < 1.2.0.1  || >= 1.3

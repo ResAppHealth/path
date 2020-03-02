@@ -12,7 +12,6 @@ module Path.Internal
   where
 
 import Control.DeepSeq (NFData (..))
-import Data.Aeson (ToJSON (..))
 import Data.Data
 import Data.Hashable
 import Data.List
@@ -74,14 +73,6 @@ instance Show (Path b t) where
 
 instance NFData (Path b t) where
   rnf (Path x) = rnf x
-
-instance ToJSON (Path b t) where
-  toJSON = toJSON . toFilePath
-  {-# INLINE toJSON #-}
-#if MIN_VERSION_aeson(0,10,0)
-  toEncoding = toEncoding . toFilePath
-  {-# INLINE toEncoding #-}
-#endif
 
 instance Hashable (Path b t) where
   -- A "." is represented as an empty string ("") internally. Hashing ""
